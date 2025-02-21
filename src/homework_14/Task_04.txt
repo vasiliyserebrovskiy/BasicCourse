@@ -1,0 +1,20 @@
+public static void main(String[] args) {
+        int a = 8;
+        int b = 3;
+        boolean result;
+
+        result = (a + b) > 10;  //true : 8 + 3 = 11 -> 11 > 10
+        System.out.println("Result 1: " + result); 
+
+        result = (a - b) == 5;  //true : 8 - 3 = 5 -> 5 == 5
+        System.out.println("Result 2: " + result);
+
+        result = (a * b) != 24; //false : 8 * 3 = 24 -> 24 != 24 -> false так как 24 == 24
+        System.out.println("Result 3: " + result);
+
+        result = (a / b) >= 2; // true : 8 / 3 -> целочисленное деление даст 2 -> 2 == 2 
+        System.out.println("Result 4: " + result);
+
+        result = !(a % b == 2); // false : 8 % 3 == 2 -> true -> !(true) -> false
+        System.out.println("Result 5: " + result);
+    }
