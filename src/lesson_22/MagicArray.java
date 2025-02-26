@@ -1,7 +1,5 @@
 package lesson_22;
 
-import org.w3c.dom.ls.LSOutput;
-
 import java.util.Arrays;
 
 /**
@@ -17,9 +15,17 @@ public class MagicArray {
         this.array = new int[10];
     }
 
-    //
+    // Конструктор с входным массивом
     public MagicArray(int[] array) {
-        //На вход
+        if (array == null || array.length == 0) {
+            this.array = new int[10];
+        } else {
+            this.array = new int[array.length * 2];
+            for (int i = 0; i < array.length; i++) {
+                this.array[i] = array[i];
+            }
+            this.cursor = array.length;
+        }
     }
 
     //Метод добавления в массив одного элемента
@@ -104,8 +110,8 @@ public class MagicArray {
         //Todo Поправить обработку некорректного индекса
     }
 
-    // удалить элемент по индексу. Возвращает старое значение
-    int delete(int index) {
+    // Удалить элемент по индексу. Возвращает старое значение
+    int remove(int index) {
         /*
         1 проверим индекс на валидность
         2 удалить значение по индексу
@@ -128,27 +134,29 @@ public class MagicArray {
     // поиск по значению возвращать индекс
     // {1, 100, 5, 25, 35} -> indexOf(5) = 2 | indexOf(50) = -1
     int indexOf(int value) {
-        // перебераем все элементы
-        // нашли вернуть индекс
-        // не нашли возвращаем -1
         for (int i = 0; i < cursor; i++) {
-            if (array[i] == value) return i; // эелемент найден
+            if (array[i] == value) return i; // элемент найден
         }
-        // Сюда мы попадем, только если ни одно значение в массиве не совпало по значению
         return -1;
     }
 
     // Индекс последнего вхождения
     // {1, 100, 5, 100, 24, 0, 100} -> lastIndexOf(6)
-    int lastIndexOf(int ) {
-        //Todo homework
+    int lastIndexOf(int number) {
+        for (int i = cursor - 1; i >= 0; i--) {
+            if (array[i] == number) return i;
+        }
         return -1;
     }
 
-    // Удаление по значению : возвращает boolean : если что-то было удалено вернуть true
+    // Удаление по значению: возвращает boolean : если что-то было удалено вернуть true
     boolean removeByValue(int value) {
-        //Todo homework
-        return true;
+        int indexOfValue = indexOf(value);
+        if (indexOfValue > 0) {
+            remove(indexOfValue);
+            return true;
+        }
+        return false;
     }
 
     public void test() {
