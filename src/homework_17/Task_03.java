@@ -19,49 +19,42 @@ public class Task_03 {
     public static void main(String[] args) {
 
         System.out.println("===== Начало =====");
-        twoPowerOfN(5);
+        System.out.println(twoPowerOfN(5));
         System.out.println("==================");
-        twoPowerOfN(1);
+        System.out.println(twoPowerOfN(1));
         System.out.println("==================");
-        twoPowerOfN(0);
+        System.out.println(twoPowerOfN(0));
         System.out.println("==================");
-        twoPowerOfN(-1);
+        System.out.println(twoPowerOfN(-1));
         System.out.println("==================");
-        twoPowerOfN(-5);
+        System.out.println(twoPowerOfN(-5));
         System.out.println("==================");
-        twoPowerOfN(8);
+        System.out.println(twoPowerOfN(8));
         System.out.println("===== Конец ======");
 
     } // End main
 
     //Метод возведения числа в степень
 
-    public static void twoPowerOfN(int n) {
+    public static double twoPowerOfN(int n) {
 
-        if (n >= 2) {
-            int result = mathPowerTwo(n);
-            System.out.printf("2 в стпени %s = %s.\n", n, result);
-        } else if (n == 1) {
-            System.out.printf("2 в степени %s = 2\n", n);
-        } else if (n == 0) {
-            System.out.printf("2 в степени %s = 1\n", n);
-        } else if (n == -1) {
-            System.out.printf("2 в степени %s = %f\n", n, (1 / (double) 2));
-        } else {
-            n *= -1;
-            int result = mathPowerTwo(n);
-            System.out.printf("2 в стпени %s = %f.\n", (-1 * n), (1 / (double) result));
-        }
-    }
+        boolean isPossitive = n >= 0;
 
-    // Метод расчета 2 в степени |n| >= 2
-    public static int mathPowerTwo(int n) {
-        int result = 2;
+        // если х отрицательный - отбросить знак числа
+        if (n < 0) n *= -1;
 
-        for (int i = 2; i <= n; i++) {
+        // Вычисляем 2 ^ |x|
+        double result = 1;
+
+        for (int i = 1; i <= n; i++) {
             result *= 2;
         }
-        return result;
+
+
+
+        return (isPossitive) ? result : 1 / result;
     }
+
+
 
 }// End class

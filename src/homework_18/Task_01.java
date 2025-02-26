@@ -24,7 +24,7 @@ public class Task_01 {
 
         int[] array = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
         //array = null;
-        copyToNewArray(array, 5);
+        copyToNewArray(array, 3);
 
     }
 
@@ -41,7 +41,12 @@ public class Task_01 {
             return;
         }
 
-        int[] newArray = new int[idx];
+        int[] result = new int[idx];
+        for (int i = 0; i < idx && i < array.length; i++) {
+            result[i] = array[i];
+        }
+
+        /*int[] newArray = new int[idx];
         int iterator;
 
         if (idx >= array.length) iterator = array.length;
@@ -49,11 +54,11 @@ public class Task_01 {
 
         for (int i = 0; i < iterator; i++) {
             newArray[i] = array[i];
-        }
+        }*/
 
         // Печать получившегося массива
         System.out.print("Создан массив : ");
-        printArray(newArray);
+        printArray(result);
         if (idx == 0) System.out.println("]");
     }
 

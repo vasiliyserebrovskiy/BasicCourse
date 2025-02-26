@@ -19,7 +19,7 @@ public class Task_03 {
         int[] array3 = new int[]{};
         int[] array4 = new int[]{-1, -13, -25, -11, -31, -55, -98, -11, -5};
         int[] array5 = new int[]{2, 4, 6, 8, 32, 64, 128, 256, 512};
-        int[] array6 = new int[]{512, 4, 6, 8, 32, 64, 128, 256, 2};
+        int[] array6 = new int[]{512, 2, 6, 8, 32, 64, 128, 256, 2};
         //Для проверки метода
         int[] result;
         array3 = null;
@@ -30,27 +30,23 @@ public class Task_03 {
         printArray(result);
 
     }
-
-    // Метод findAllPrimeNumbers : возвращающий массив простых чисел из заданного массива
-    // В Условии не оговаривается какой массив должен вернуть метод,
-    // так как входным параметром является int[] массив, то логично предположить,
-    // что и возвращаемый массив должен быть типа int[].
-
+    // Поиск простых чисел в массиве: 1 ищем простые числа и считаем их 2 создаем новый массив для простых чисел, если нашли и записываем их 3 возвращаем массив
     public static int[] findAllPrimeNumbers(int[] array) {
 
-        String primeNumbers = ""; //ArrayList<Integer> упростил бы задачу и в кучу бы не мусорили
         boolean isOnePrimeFound = false;
+        int count = 0;
 
         if (array == null || array.length == 0) {
             System.out.println("Ошибка: входной массив null или пуст!");
             return new int[0];
         }
 
+        // идем по массиву и считаем простые числа
         for (int i = 0; i < array.length; i++) {
             if (array[i] > 1) {
                 if (array[i] == 2 || array[i] == 3) {
                     isOnePrimeFound = true;
-                    primeNumbers += array[i] + "X";
+                    count++;
                     continue;
                 }
                 if (array[i] % 2 != 0 && array[i] % 3 != 0) {
@@ -64,23 +60,46 @@ public class Task_03 {
                     }
                     if (isPrime) {
                         isOnePrimeFound = true;
-                        primeNumbers += array[i] + "X";
+                        count++;
                     }
                 }
             }
         }
 
-        String[] primaryNumbersArray = primeNumbers.split("X");
-        int arrayIdx = primaryNumbersArray.length;
-        int[] newArray = new int[arrayIdx];
+        System.out.println("Сколько нашли простых чисел = " + count);
 
         if (isOnePrimeFound) {
-            for (int i = 0; i < arrayIdx; i++) {
-                newArray[i] = Integer.parseInt(primaryNumbersArray[i]);
+            int[] newArray = new int[count];
+            count = 0;
+            //идем еще раз по массиву и записываем простые числа в новый массив
+            for (int i = 0; i < array.length; i++) {
+                if (array[i] > 1) {
+                    if (array[i] == 2 || array[i] == 3) {
+                        newArray[count] = array[i];
+                        count++;
+                        continue;
+                    }
+                    if (array[i] % 2 != 0 && array[i] % 3 != 0) {
+                        boolean isPrime = true;
+                        for (int j = 5; j * j <= array[i]; j += 6) {
+
+                            if (array[i] % j == 0 || array[i] % (j + 2) == 0) {
+                                isPrime = false;
+                                break;
+                            }
+                        }
+                        if (isPrime) {
+                            newArray[count] = array[i];
+                            count++;
+                        }
+                    }
+                }
             }
+            return newArray;
         }
-        return newArray;
+        return new int[]{};
     }
+
 
     // Вывод массива в консоль
     public static void printArray(int[] array) {
