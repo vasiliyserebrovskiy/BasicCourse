@@ -7,15 +7,17 @@ import java.util.Arrays;
  * @version 1.0 (26.02.2025)
  */
 public class MagicArrayEncaps {
-    int[] array; // null
-    int cursor; // по умолчанию получит значение 0
+    private int[] array; // null
+    private int cursor; // по умолчанию получит значение 0
 
-    // Методы, расширяющие функционал массива
+    // Конструкторы
+
+    // Конструктор без параметров
     public MagicArrayEncaps() {
         this.array = new int[10];
     }
 
-    // Конструктор с входным массивом
+    // Конструктор с входным массивом в качестве параметров
     public MagicArrayEncaps(int[] array) {
         if (array == null || array.length == 0) {
             this.array = new int[10];
@@ -24,6 +26,20 @@ public class MagicArrayEncaps {
             // (int... numbers) может принять ссылку на массив
             add(array);
         }
+    }
+
+    //Геттеры
+    public int[] getArray() {
+        int[] result = new int[cursor];
+        for (int i = 0; i < cursor; i++) {
+            result[i] = array[i];
+        }
+        return result;
+    }
+
+    // Вывод кол-ва элементов массива
+    public int getCursor() {
+        return cursor;
     }
 
     //Метод добавления в массив одного элемента
@@ -38,8 +54,8 @@ public class MagicArrayEncaps {
         cursor++;
     }
 
-    // Динамическое расширение массива
-    void expandArray() {
+    // Динамическое расширение массива - доступно только в рамках класса!
+    private void expandArray() {
         System.out.println("Расширяем внутренний массив! Курсор равен " + cursor);
         /*
         1 создать новый массив в два раза большей длинны
@@ -59,7 +75,7 @@ public class MagicArrayEncaps {
     }
 
     // Добавление в массив нескольких элементов
-    void add(int... numbers) {
+    public void add(int... numbers) {
         // ... - секвенция numbers - любое кол-во int от 0 до ***
         // numbers - последовательность int'ов - обрабатываем как массив
 //        System.out.println("Принял несколько int " + numbers.length);
@@ -88,19 +104,12 @@ public class MagicArrayEncaps {
         return result;
     }
 
-    // Вывод кол-ва элементов массива
-    int size() {
-        return cursor;
-    }
-
     // получить элемент по индексу
-    int getElement(int index) {
+    public int getElement(int index) {
         // проконтролировать входящий индекс
         if (index >= 0 && index < cursor) {
             return array[index];
         }
-
-        //Fixme Указать место кода с ошибкой / проблемой
 
         // Код, если индекс не корректный
         // Хорошего решения нет
@@ -109,13 +118,8 @@ public class MagicArrayEncaps {
     }
 
     // Удалить элемент по индексу. Возвращает старое значение
-    int remove(int index) {
-        /*
-        1 проверим индекс на валидность
-        2 удалить значение по индексу
-        3 передвинуть курсор, так как кол-во элементов уменьшилось
-        4 вернуть старое значение
-         */
+    public int remove(int index) {
+
         if (index >= 0 && index < cursor) {
             int value = array[index]; // запомнить удаляемое значение
 
@@ -131,7 +135,7 @@ public class MagicArrayEncaps {
 
     // поиск по значению возвращать индекс
     // {1, 100, 5, 25, 35} -> indexOf(5) = 2 | indexOf(50) = -1
-    int indexOf(int value) {
+    public int indexOf(int value) {
         for (int i = 0; i < cursor; i++) {
             if (array[i] == value) return i; // элемент найден
         }
@@ -140,7 +144,7 @@ public class MagicArrayEncaps {
 
     // Индекс последнего вхождения
     // {1, 100, 5, 100, 24, 0, 100} -> lastIndexOf(6)
-    int lastIndexOf(int number) {
+    public int lastIndexOf(int number) {
 
         for (int i = cursor - 1; i >= 0; i--) {
             if (array[i] == number) return i;
@@ -149,7 +153,7 @@ public class MagicArrayEncaps {
     }
 
     // Удаление по значению: возвращает boolean : если что-то было удалено вернуть true
-    boolean removeByValue(int value) {
+    public boolean removeByValue(int value) {
         int indexOfValue = indexOf(value);
         if (indexOfValue > 0) {
             remove(indexOfValue);
@@ -180,9 +184,9 @@ public class MagicArrayEncaps {
  5. Текущее кол-во элементов в массиве ++
  6. получить элемент по индексу ++
  7. удалить элемент по индексу. Возвращает старое значение ++
- - 8. удаление по значению
+ 8. удаление по значению ++
  9. поиск по значению возвращать индекс (возвращает значение первого найденного элемента/ индекс первого вхождения) ++
- - 10. Индекс последнего вхождения
- - 11. Конструктор, принимающий обычный массив. Создать магический массив с элементами из обычного массива
- 12. Написать метод, который вернет массив, состоящий из элементов магического массива
+ 10. Индекс последнего вхождения ++
+ 11. Конструктор, принимающий обычный массив. Создать магический массив с элементами из обычного массива ++
+ 12. Написать метод, который вернет массив, состоящий из элементов магического массива ++
  */
