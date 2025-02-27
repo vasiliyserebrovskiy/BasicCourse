@@ -59,6 +59,11 @@ public class Employee {
 
     }
 
+    // Метод info()
+    public void info() {
+        System.out.printf("Имя сотрудника: %s. Возраст сотрудника: %d. Зарплата: %.2f\n", name,age,salary);
+    }
+
     // Метод вывода информации о сотруднике
     public String toString() {
         String result = String.format("Имя сотрудника: %s. Возраст сотрудника: %d. Зарплата: %.2f", name,age,salary);

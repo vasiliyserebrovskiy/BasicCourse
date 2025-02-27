@@ -73,6 +73,7 @@ public class ArrayEncapsTest {
         employee2.recountSalary(130);
         System.out.println("==============================");
         System.out.println("Отобрали 30% с зарплаты " + employee2);
+        employee2.info();
 
 
     }
