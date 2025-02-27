@@ -28,17 +28,9 @@ public class MagicArrayEncaps {
         }
     }
 
-    //Геттеры
-    public int[] getArray() {
-        int[] result = new int[cursor];
-        for (int i = 0; i < cursor; i++) {
-            result[i] = array[i];
-        }
-        return result;
-    }
 
     // Вывод кол-ва элементов массива
-    public int getCursor() {
+    public int size() {
         return cursor;
     }
 

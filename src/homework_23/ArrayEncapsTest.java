@@ -32,10 +32,9 @@ public class ArrayEncapsTest {
         System.out.println(magic.toString());
 
         System.out.println("Индекс элемента 10 с конца = " + magic.lastIndexOf(10));
-        System.out.println("Размер массива = " + magic.getCursor());
+        System.out.println("Размер массива = " + magic.size());
 
-        int[] newArray = magic.getArray();
-        System.out.println(Arrays.toString(newArray));
+
         int[] newArray2 = magic.toArray();
         System.out.println(Arrays.toString(newArray2));
 
