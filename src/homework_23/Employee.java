@@ -7,8 +7,7 @@ package homework_23;
 public class Employee {
     private String name;
     private int age;
-
-    private double salary;
+    private double salary; // в реальной жизни используется другой тип данных - ссылочные, более точные(double имеет погрешности)
 
     //Конструкторы
     public Employee(String name, int age) {
