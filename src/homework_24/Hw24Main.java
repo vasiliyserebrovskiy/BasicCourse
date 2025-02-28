@@ -5,7 +5,7 @@ package homework_24;
  * @author Vasilii Serebrovskii
  * @version 1.0 (28.02.2025)
  */
-public class Hw23Main {
+public class Hw24Main {
     public static void main(String[] args) {
         System.out.println("========== Test Calculator ==========\n");
         double result = Calculator.addition(10, 20);
