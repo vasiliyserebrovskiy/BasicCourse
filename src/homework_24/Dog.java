@@ -63,6 +63,7 @@ public class Dog {
         // Проверка возможности тренироваться
         if (jumpHeight < maxJumpHeight) {
             jumpHeight += 10;
+            if (jumpHeight > maxJumpHeight) jumpHeight = maxJumpHeight;
             System.out.println("Потренировались прыгать!");
         } else {
             System.out.println("Достигнута максимально возможная высота прыжка в " + jumpHeight + " см");
