@@ -54,11 +54,27 @@ public class Hw24Main {
 //        myDog3.jumpBarrier(30);
 //        System.out.println("Максимальная высота прыжка собаки myDog3 = " + myDog3.getJumpHeight());
 
-        Dog myDog = new Dog("Laska", 33);
-        System.out.println(myDog);
-        myDog.jumpBarrier(65);
-        System.out.println(myDog);
+//        Dog myDog = new Dog("Laska", 33);
+//        System.out.println(myDog);
+//        myDog.jumpBarrier(65);
+//        System.out.println(myDog);
 
+        double x1 = 10.0;
+        double resultat = x1 / 0;
+        System.out.println("10 / 0 = " + resultat);
+
+        double inf1 = 1.0 / 0;
+        double inf2 = 10000.0 / 0;
+
+        System.out.println(inf1 == inf2);
+        System.out.println(inf1 > inf2);
+        System.out.println("10.0 / 10.0 = " + (10.0 / 10.0));
+        double res2 = inf1 / inf2;
+        System.out.println("res2 =  " + res2);
+        // Infiniti - бесконечность
+        // NaN - ничто, нет значения.
+        // Все операции с Infinity возвращают NaN так как а не знаю что будет
+        System.out.println(Calculator.division(10 , 0));
 
     }
 }

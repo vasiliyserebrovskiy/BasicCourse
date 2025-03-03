@@ -34,11 +34,6 @@ public class Calculator {
 
     // Метод для деления
     public static double division(double x, double y) {
-        if (y == 0) {
-            System.out.println("Нельзя делить на ноль!");
-            return -Double.MIN_VALUE;
-            // Todo: обработку ситуации деления на 0, нужно будет переделать, так не хорошо!
-        }
         return x / y;
     }
 
