@@ -5,8 +5,6 @@ package homework_25;
  * @version 1.0 (28.02.2025)
  */
 
-import java.util.Random;
-
 /**
  * Task 2 * (Опционально)
  * Написать класс Собака (Dog).
@@ -23,18 +21,6 @@ public class DogModified {
     private String name;
     private int jumpHeight; // высоту прыжка будем измерять в сантиметрах, поэтому берем int
     private int maxJumpHeight;
-    private static Random random = new Random();
-
-    // Массив случайных барьеров
-    public static final int[] barriers = new int[7];
-
-    // Инициализация случайных барьеров
-    static {
-        for (int i = 0; i < 7; i++) {
-            barriers[i] = random.nextInt(101) + 70; // Заполнить массив случайными значениями от 70 до 170.
-
-        }
-    }
 
     // Конструктор
     public DogModified(String name, int jumpHeight) {
@@ -50,14 +36,6 @@ public class DogModified {
             this.jumpHeight = jumpHeight;
             this.maxJumpHeight = jumpHeight * 2;
         }
-    }
-
-    // Конструктор с автоматическим заполнением параметра высоты прыжка собаки
-    public DogModified(String name) {
-        this.name = name;
-        int randomHight = random.nextInt(51) + 30; // со случайным прыжком от 30 до 80
-        this.jumpHeight = randomHight;
-        this.maxJumpHeight = randomHight * 2;
     }
 
     // Геттеры
