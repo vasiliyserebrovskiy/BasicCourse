@@ -52,6 +52,8 @@ public class Hw26Main {
         System.out.println("Пожалуйста введите строку из несколькиз слов: ");
         String userString = sc.nextLine().trim();
 
+        if (userString.isEmpty()) return "";
+
         String[] words = userString.split("\\s+");
         for (String word : words) {
             sb.append(Character.toUpperCase(word.charAt(0)));
