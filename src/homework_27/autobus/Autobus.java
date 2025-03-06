@@ -151,8 +151,8 @@ public class Autobus {
 
     public boolean dropPassenger(Passenger passenger) {
         if (passenger == null) return false;
-        if (isPassengerInBus(passenger)) {
-            int place = getPassengerPlace(passenger);
+        int place = getPassengerPlace(passenger);
+        if (place >= 0) {
             for (int i = place; i < countPassengers - 1; i++) {
                 passengers[i] = passengers[i + 1];
             }
