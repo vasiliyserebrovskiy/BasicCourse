@@ -150,12 +150,13 @@ public class Autobus {
     }
 
     public boolean dropPassenger(Passenger passenger) {
-        if (passenger == null) return false;
+        if (passenger == null || countPassengers == 0) return false;
         int place = getPassengerPlace(passenger);
         if (place >= 0) {
             for (int i = place; i < countPassengers - 1; i++) {
                 passengers[i] = passengers[i + 1];
             }
+            passengers[countPassengers - 1] = null; //не обязательное действие, сбросить последнего сдвинутого пассажира
             countPassengers--;
             System.out.println("Пассажир c id " + passenger.getId() + " вышел из автобуса c id " + this.id);
             return true;

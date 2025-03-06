@@ -7,6 +7,7 @@ package homework_27.computer_components;
 public class Component {
     protected String brand;
     protected String model;
+    // private final - на лекции сделали их такими
 
     public Component(String brand, String model) {
         this.brand = brand;
