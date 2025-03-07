@@ -6,9 +6,16 @@ package homework_28.human;
  */
 public class ProfessionalAthlete extends AmateurAthlete {
 
+    {
+        typeRunner = "Профессионал";
+    }
+
     public ProfessionalAthlete() {
-        runSpeed = 25;
-        restTime = 5;
+        super(25,5);
+    }
+
+    public ProfessionalAthlete(int runSpeed, int restTime) {
+        super(runSpeed, restTime);
     }
 
     /* @Override

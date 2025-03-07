@@ -6,9 +6,17 @@ package homework_28.human;
  */
 public class AmateurAthlete extends Human {
 
+    // Блок инициализации
+    {
+        typeRunner = "Любитель";
+    }
+
     public AmateurAthlete() {
-        runSpeed = 15;
-        restTime = 10;
+        super(15,10);
+    }
+
+    public AmateurAthlete(int runSpeed, int restTime) {
+        super(runSpeed, restTime);
     }
 
     /*@Override
