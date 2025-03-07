@@ -6,12 +6,15 @@ package homework_28.human;
  */
 public class Human {
 
+    protected int runSpeed = 10;
+    protected int restTime = 15;
+
     public void run() {
-        System.out.println("Бежим со скорость 10 км/ч.");
+        System.out.println("Бежим со скорость " + runSpeed + " км/ч.");
         rest();
     }
 
     public void rest() {
-        System.out.println("Отдыхаем 15 минут.");
+        System.out.println("Отдыхаем " + restTime + " минут.");
     }
 }

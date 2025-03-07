@@ -6,8 +6,12 @@ package homework_28.human;
  */
 public class AmateurAthlete extends Human {
 
+    public AmateurAthlete() {
+        runSpeed = 15;
+        restTime = 10;
+    }
 
-    @Override
+    /*@Override
     public void run() {
         System.out.println("Бежим со скорость 15 км/ч.");
         rest();
@@ -16,5 +20,5 @@ public class AmateurAthlete extends Human {
     @Override
     public void rest() {
         System.out.println("Отдыхаем 10 минут.");
-    }
+    }*/
 }
