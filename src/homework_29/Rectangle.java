@@ -9,6 +9,7 @@ public class Rectangle extends Shape {
     private double rectangleSideB;
 
     public Rectangle(double rectangleSideA, double rectangleSideB) {
+        if (rectangleSideA < 0 || rectangleSideB < 0) return;
         this.rectangleSideA = rectangleSideA;
         this.rectangleSideB = rectangleSideB;
         type = "Rectangle";
@@ -44,5 +45,13 @@ public class Rectangle extends Shape {
 
     public void setRectangleSideB(double rectangleSideB) {
         this.rectangleSideB = rectangleSideB;
+    }
+
+    @Override
+    public String toString() {
+        return "Rectangle{" +
+                "rectangleSideA=" + rectangleSideA +
+                ", rectangleSideB=" + rectangleSideB +
+                '}';
     }
 }

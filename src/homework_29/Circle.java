@@ -8,6 +8,7 @@ public class Circle extends Shape {
     private double radius;
 
     public Circle(double radius) {
+        if (radius < 0) return;
         this.radius = radius;
         type = "Circle";
     }
@@ -28,5 +29,12 @@ public class Circle extends Shape {
 
     public void setRadius(double radius) {
         this.radius = radius;
+    }
+
+    @Override
+    public String toString() {
+        return "Circle{" +
+                "radius=" + radius +
+                '}';
     }
 }
