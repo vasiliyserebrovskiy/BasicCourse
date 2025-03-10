@@ -40,5 +40,16 @@ public class App {
 
         Triangle testTriangle = new Triangle(1,2, 7);
 
+        System.out.println("========================================\n");
+
+        // Невозможно создать объект - нет открытого конструктора
+        //CircleSingleTon singleTon = new CircleSingleTon();
+
+        // Не будет создан объект Circle - вернется null
+        CircleSingleTon single = CircleSingleTon.getCircle(-5);
+        System.out.println(single);
+
+        CircleSingleTon circleSingle = CircleSingleTon.getCircle(5);
+        System.out.println(circleSingle);
     }
 }
