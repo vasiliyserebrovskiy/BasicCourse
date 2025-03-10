@@ -36,7 +36,9 @@ public class App {
         System.out.println("The total area of all the shapes: " + totalArea);
         System.out.println("The total perimeter of all the shapes: " + totalPerimeter);
 
+        System.out.println("========================================\n");
 
+        Triangle testTriangle = new Triangle(1,2, 7);
 
     }
 }

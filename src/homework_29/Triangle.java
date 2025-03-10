@@ -10,6 +10,9 @@ public class Triangle extends Shape {
     private double sideC;
 
     public Triangle(double sideA, double sideB, double sideC) {
+        if (!isValidTriangle(sideA, sideB, sideC)) {
+            System.out.println("Треугольник с такими сторонами не может существовать!");
+        }
         this.sideA = sideA;
         this.sideB = sideB;
         this.sideC = sideC;
@@ -28,6 +31,10 @@ public class Triangle extends Shape {
         this.sideB = sideA;
         this.sideC = sideA;
         type = "Equilateral Triangle";
+    }
+
+    private boolean isValidTriangle(double a, double b, double c) {
+        return a + b > c && a + c > b && b + c > a;
     }
 
     @Override
