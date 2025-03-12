@@ -1,7 +1,7 @@
-package homework_31;
+package lesson_32.hw_31;
 
 import java.lang.reflect.Array;
-import java.util.Arrays;
+import java.util.Objects;
 
 /**
  * @author Vasilii Serebrovskii
@@ -78,7 +78,8 @@ public class MagicArrayList<T> implements MyList<T> {
     @Override
     public int indexOf(T value) {
         for (int i = 0; i < cursor; i++) {
-            if (array[i] != null && array[i].equals(value)) return i;
+            if (Objects.equals(array[i], value)) return i; // Позволяет безопасно искать и сравнивать null
+            //if (array[i] != null && array[i].equals(value)) return i;
         }
         return -1;
     }
@@ -87,7 +88,8 @@ public class MagicArrayList<T> implements MyList<T> {
     @Override
     public int lastIndexOf(T value) {
         for (int i = cursor - 1; i >= 0; i--) {
-            if (array[i] != null && array[i].equals(value)) return i;
+            if (Objects.equals(array[i], value)) return i; // Позволяет безопасно искать и сравнивать null
+            //if (array[i] != null && array[i].equals(value)) return i;
         }
         return -1;
     }
@@ -97,9 +99,22 @@ public class MagicArrayList<T> implements MyList<T> {
         return indexOf(value) >= 0;
     }
 
+    //    @Override
+//    public T[] toArray() {
+//        @SuppressWarnings("unchecked")
+//        T[] result = (T[]) new Object[cursor];
+//        for (int i = 0; i < cursor; i++) {
+//            result[i] = array[i];
+//        }
+//        return result;
+//        // ловлю ошибку ClassCastException
+//    }
+    
     @Override
     @SuppressWarnings("unchecked")
     public T[] toArray() {
+        //System.out.println("В поисках рефлексии");
+        //return null; // временно
         // РЕФЛЕКСИЯ
         // Взять первый элемент массива
         // Узнать тип объекта по первому элементу
@@ -116,6 +131,7 @@ public class MagicArrayList<T> implements MyList<T> {
 
         return result;
     }
+
 
 // Удаление по значению: возвращает boolean : если что-то было удалено вернуть true
 @Override

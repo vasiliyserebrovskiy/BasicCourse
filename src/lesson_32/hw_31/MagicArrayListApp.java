@@ -1,4 +1,4 @@
-package homework_31;
+package lesson_32.hw_31;
 
 import java.util.Arrays;
 
@@ -10,7 +10,34 @@ public class MagicArrayListApp {
 
     public static void main(String[] args) {
 
-        System.out.println("========== Integer ===========");
+
+        MagicArrayList<Integer> list = new MagicArrayList();
+
+        Integer[] array2 = list.toArray();
+
+        System.out.println(Arrays.toString(array2));
+
+        System.out.println(list);
+        list.add(10);
+        list.addAll(20,30,40,50);
+        System.out.println(list);
+
+        Integer[] array = list.toArray();
+
+        System.out.println(Arrays.toString(array));
+
+        // Стирание типов при работе с дженериками
+        // Type Erasyre - информация о типах дженериков удаляется во время компиляции
+        /*
+        Во время компиляции:
+            1. Проверка типов.
+            2. Стирание типов: удаление информации о параметрах типов
+            3. происходит добавление приведения типов, где это необходимо.
+         */
+
+
+
+       /* System.out.println("========== Integer ===========");
         Integer[] myInt = {2, 10, 13};
         MagicArrayList<Integer> myIntegers = new MagicArrayList<>(myInt);
         System.out.println("myIntegers = " + myIntegers);
@@ -57,7 +84,7 @@ public class MagicArrayListApp {
         System.out.println("myStrings contain \"String 3\" = " + myStrings.contains("String 3"));
         System.out.println("isEmpty = " + myStrings.isEmpty());
 
-        System.out.println("================");
+        System.out.println("================");*/
 
 
 
