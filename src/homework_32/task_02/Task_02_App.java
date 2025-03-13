@@ -18,19 +18,19 @@ Task 2. * Опционально
 public class Task_02_App {
     public static void main(String[] args) {
 
-        MyArrayList<String> names = new MyArrayList<>();
+        MyList<String> names = new MyArrayList<>();
         names.add("Alice");
         names.add("Bob");
 
-        MyArrayList<Integer> scores = new MyArrayList<>();
+        MyList<Integer> scores = new MyArrayList<>();
         scores.add(85);
         scores.add(92);
 
         printTwoLists(names, scores);
 
     }
-
-    public static <T,U> void printTwoLists(MyArrayList<T> firstArray, MyArrayList<U> secondArray) {
+    // правильнее использовать ссылки интерфейса а не класса. Поэтому MyList, хотя можно и MyArrayList.
+    public static <T,U> void printTwoLists(MyList<T> firstArray, MyList<U> secondArray) {
         for (int i = 0; i < firstArray.size(); i++) {
             System.out.println(firstArray.get(i));
         }
