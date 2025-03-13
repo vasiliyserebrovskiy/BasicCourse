@@ -17,11 +17,18 @@ Task 3: Обобщенный класс с ограничениями типов
 public class Task_03_App {
     public static void main(String[] args) {
 
-        NumericPair<Integer> intPair = new NumericPair<>(10, 20);
+        NumericPair<Integer, Integer> intPair = new NumericPair<>(10, 20);
         System.out.println(intPair.sum()); // Вывод: 30.0
 
-        NumericPair<Double> doublePair = new NumericPair<>(5.5, 4.5);
+        NumericPair<Double, Double> doublePair = new NumericPair<>(5.5, 4.5);
         System.out.println(doublePair.sum()); // Вывод: 10.0
 
+        NumericPair<Integer, Double> doublePai2 = new NumericPair<>(5, 4.5);
+        System.out.println(doublePai2.sum()); // Вывод: 10.0
+
+        Byte btVal = 10;
+
+        NumericPair<Number, Byte> bytePair = new NumericPair<>(btVal, btVal);
+        System.out.println(bytePair.sum());
     }
 }
