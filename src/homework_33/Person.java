@@ -74,10 +74,10 @@ public class Person {
         String specialSymbols = "!#%$@&*()[],.-";
 
         for (char ch : password.toCharArray()) {
-            if (!isDigit && Character.isDigit(ch)) isDigit = true;
-            if (!isLowerChar && Character.isLowerCase(ch)) isLowerChar = true;
-            if (!isUpperChar && Character.isUpperCase(ch)) isUpperChar = true;
-            if (!isSpecialSymbol && specialSymbols.indexOf(ch) != -1) isSpecialSymbol = true;
+            if (Character.isDigit(ch)) isDigit = true;
+            if (Character.isLowerCase(ch)) isLowerChar = true;
+            if (Character.isUpperCase(ch)) isUpperChar = true;
+            if (specialSymbols.indexOf(ch) != -1) isSpecialSymbol = true;
             if (isDigit && isLowerChar && isUpperChar && isSpecialSymbol) break;
         }
 
