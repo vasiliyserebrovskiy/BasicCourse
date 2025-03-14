@@ -42,7 +42,8 @@ class PersonTest {
 
     static Stream<String> emailNotValidDataArguments() {
         return Stream.of("test#gmail.com", "test@.gmail.com", "test@gmail.co.m", "test@gmail.com.", "1test@gmail.com",
-                "test%test@gmail.com", "test@test@gmail.com", "@test.mail.com", "te#st@gmail.co.m");
+                "test%test@gmail.com", "test@test@gmail.com", "@test.mail.com", "te#st@gmail.co.m", "te&st@gmail.com", "te!st@gmail.com",
+                "tеst@gmail.com.", "test@gm&ail.com", "test@gmail.co*m", "!test@gmail.com.", "test@+gmail.com");
     }
 
     // Testing method setPassword()
@@ -64,7 +65,8 @@ class PersonTest {
     }
 
     static Stream<String> passwordNotValidDataArguments() {
-        return Stream.of("password", "Password", "P@SSW0RD", "p@ssw0rd", "P@ssword", "P@ssw0r");
+        return Stream.of("password", "Password", "P@SSW0RD", "p@ssw0rd", "P@ssword", "P@ssw0r", "12345678",
+                "12345cV6", "@#$%ˆwA", "WR#%76T3", "1@v", "18G_s1");
     }
 
 }
