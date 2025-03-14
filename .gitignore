@@ -3,6 +3,10 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 .idea
+lib/
+
+
+
 
 ### Eclipse ###
 .apt_generated
