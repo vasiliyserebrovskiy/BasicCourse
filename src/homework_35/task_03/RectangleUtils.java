@@ -8,23 +8,7 @@ import java.util.Iterator;
  */
 public class RectangleUtils extends Rectangle {
 
-    public static void removeDuplicates(MyList<Rectangle> rectangles, Rectangle rectangleToRemove) {
-
-        if (rectangles.isEmpty()) return;
-
-        Iterator<Rectangle> rectIterator = rectangles.iterator();
-
-        while (rectIterator.hasNext()) {
-            Rectangle rectangle = rectIterator.next();
-
-            if (rectangle.equals(rectangleToRemove)) {
-                rectIterator.remove();
-            }
-        }
-
-    }
-
-    public static MyList<Rectangle> removeDuplicates2(MyList<Rectangle> rectangles, Rectangle rectangleToRemove) {
+    public static MyList<Rectangle> removeDuplicates(MyList<Rectangle> rectangles, Rectangle rectangleToRemove) {
 
         if (rectangles.isEmpty()) return new MyArrayList<>();
 
@@ -40,5 +24,23 @@ public class RectangleUtils extends Rectangle {
 
         return newRectangle;
     }
+
+    public static void removeDuplicates2(MyList<Rectangle> rectangles, Rectangle rectangleToRemove) {
+
+        if (rectangles.isEmpty()) return;
+
+        Iterator<Rectangle> rectIterator = rectangles.iterator();
+
+        while (rectIterator.hasNext()) {
+            Rectangle rectangle = rectIterator.next();
+
+            if (rectangle.equals(rectangleToRemove)) {
+                rectIterator.remove();
+            }
+        }
+
+    }
+
+
 
 }

@@ -40,14 +40,14 @@ public class RectangleApp {
         }
 
         Rectangle rectangleToRemove = new Rectangle(5.0, 3.0);
-        RectangleUtils.removeDuplicates(rectangles, rectangleToRemove);
+        rectangles = RectangleUtils.removeDuplicates(rectangles, rectangleToRemove);
 
         System.out.println("\nСписок после удаления дубликатов:");
         for (Rectangle rect : rectangles) {
             System.out.println(rect);
         }
 
-        System.out.println("================================");
+        System.out.println("\n ================================ \n");
 
         MyList<Rectangle> rectangles2 = new MyArrayList<>();
         rectangles2.add(new Rectangle(5.0, 3.0));
@@ -61,15 +61,12 @@ public class RectangleApp {
             System.out.println(rect);
         }
 
-        // Rectangle rectangleToRemove = new Rectangle(5.0, 3.0);
-        rectangles2 = RectangleUtils.removeDuplicates2(rectangles2, rectangleToRemove);
+        RectangleUtils.removeDuplicates2(rectangles2, rectangleToRemove);
 
         System.out.println("\nСписок после удаления дубликатов:");
         for (Rectangle rect : rectangles2) {
             System.out.println(rect);
         }
-
-        ArrayList<String> newString = new ArrayList<>();
 
     }
 }
