@@ -23,7 +23,7 @@ public class ListTask01 {
         list1.addAll(List.of(10, 25, 47, 38, 100, 98, 57, 835, 88, 0));
         list2.addAll(List.of(25, 67, 0, 35, 1000, 298, 507, 38, 12, 47));
 
-        List<Number> result = returnRetainElements(list1, list2);
+        List<Integer> result = returnRetainElements(list1, list2);
 
         System.out.println("List1: " + list1);
         System.out.println("List2: " + list2);
@@ -32,9 +32,9 @@ public class ListTask01 {
 
     }
 
-    public static List<Number> returnRetainElements(List<? extends Number> list1, List<? extends Number> list2) {
+    public static <T >List<T> returnRetainElements(List<T> list1, List<T> list2) {
 
-        List<Number> newList = new ArrayList<>(list1);
+        List<T> newList = new ArrayList<>(list1);
         newList.retainAll(list2);
 
         return newList;
