@@ -40,7 +40,7 @@ public class SetExample {
         Set<Integer> integers = new HashSet<>(startValues);
         System.out.println("HashSet integers = " + integers);
 
-        // LindeHashSet - сохраняет порядок добавления элементов
+        // LinkedHashSet - сохраняет порядок добавления элементов
         Set<Integer> linkedSet = new LinkedHashSet<>(startValues);
         System.out.println("linkedSet = " + linkedSet);
         System.out.println("===============");
