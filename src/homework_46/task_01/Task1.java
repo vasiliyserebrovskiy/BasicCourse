@@ -2,6 +2,7 @@ package homework_46.task_01;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 import java.util.function.Predicate;
 
 /**
@@ -33,6 +34,12 @@ public class Task1 {
 
         Map<String, Integer> intersectionMap = intersection(map1, map2);
         intersectionMap.forEach((key, value) -> System.out.println(key + ": " + value));
+        System.out.println("====== 2 ======");
+        Map<String, Integer> intersectionMap2 = intersection2(map1, map2);
+        intersectionMap2.forEach((key, value) -> System.out.println(key + ": " + value));
+        System.out.println("====== 3 ======");
+        Map<String, Integer> intersectionMap3 = intersection3(map1, map2);
+        intersectionMap3.forEach((key, value) -> System.out.println(key + ": " + value));
 
     }
 
@@ -51,4 +58,36 @@ public class Task1 {
 
         return result;
     }
+
+    // Фариант разобраный на занятии 47
+    private static Map<String, Integer> intersection2(Map<String, Integer> map1, Map<String, Integer> map2) {
+        Map<String,Integer> result = new HashMap<>();
+
+        Set<String> keySet1 = map1.keySet();
+        // Оставить в set ключи, которые есть в обоих сэтах
+        for (String key1 : keySet1) {
+            if (map2.containsKey(key1)) {
+                result.put(key1,map1.get(key1));
+            }
+        }
+
+       /* //second variant
+        keySet1.retainAll(map2.keySet());
+        for (String key: keySet1) {
+            result.put(key, map1.get(key));
+        }*/
+
+        return result;
+    }
+
+
+    private static Map<String, Integer> intersection3(Map<String, Integer> map1, Map<String, Integer> map2) {
+        Map<String,Integer> result = new HashMap<>(map1);
+
+        Set<String> keySet1 = result.keySet();
+        keySet1.retainAll(map2.keySet());
+
+        return result;
+    }
+
 }
