@@ -31,6 +31,9 @@ public class Task02 {
     private static List<String> filteredStrings(List<String> myStringList) {
         return myStringList.stream()
                 .filter(word -> word.toLowerCase().charAt(0) == 'а')
+                //.filter(word -> word.substring(0,1).equalsIgnoreCase("A")) - лучше чем charAt
+                //методы String endsWith() startsWith()
+                // содержит ли строка подстроку contains()
                 .sorted()
                 .collect(Collectors.toList());
     }
