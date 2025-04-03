@@ -15,7 +15,7 @@ Task 1
 public class Task01 {
 
     public static void main(String[] args) {
-        List<Integer> integers = List.of(5, 4, 13, 56, 24, -18, -5, 0, 45, -25, 146, 7);
+        List<Integer> integers = List.of(5, 4, 13, 56, 24, -18, -5, 0, 45, -25, 146, 7, 51);
 
         List<Integer> sortedIntegers = integers.stream()
                 .filter(i -> i > 10)

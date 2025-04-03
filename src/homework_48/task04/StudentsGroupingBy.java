@@ -64,41 +64,41 @@ public class StudentsGroupingBy {
 
         Map<String, List<Student>> majorMap = students.stream()
                 .collect(Collectors.groupingBy(Student::getMajor));
-        System.out.println("=== Группировка студентов по специальности ===");
+        System.out.println("=== 1 Группировка студентов по специальности ===");
         printMap(majorMap);
 
         //2 Группировка по курсу с использованием Set
         Map<Integer, Set<Student>> yearSetMap = students.stream()
                 .collect(Collectors.groupingBy(Student::getYear, Collectors.toSet()));
 
-        System.out.println("=== Группировка по курсу с использованием Set ===");
+        System.out.println("=== 2 Группировка по курсу с использованием Set ===");
         printMap(yearSetMap);
 
         //3 Подсчёт количества студентов по специальности
         Map<String, Long> countingStudents = students.stream()
                 .collect(Collectors.groupingBy(Student::getMajor, Collectors.counting()));
-        System.out.println("=== Подсчёт количества студентов по специальности ===");
+        System.out.println("=== 3 Подсчёт количества студентов по специальности ===");
         printMap(countingStudents);
 
         //4 Средний балл по специальности
         Map<String, Double> majorAveraging = students.stream()
                 .collect(Collectors.groupingBy(Student::getMajor, Collectors.averagingDouble(Student::getGrade)));
 
-        System.out.println("=== Средний балл по специальности ===");
+        System.out.println("=== 4 Средний балл по специальности ===");
         printMap(majorAveraging);
 
         //5 Список оценок по специальности
         Map<String, List<Double>> majorGrades = students.stream()
                 .collect(Collectors.groupingBy(Student::getMajor, Collectors.mapping(Student::getGrade, Collectors.toList())));
 
-        System.out.println("=== Список оценок по специальности ===");
+        System.out.println("=== 5 Список оценок по специальности ===");
         printMap(majorGrades);
 
         //6 Суммарная статистика по возрасту
         DoubleSummaryStatistics yearStatistics = students.stream()
                 .collect(Collectors.summarizingDouble(Student::getAge));
 
-        System.out.println("========== Суммарная статистика по возрасту ==========");
+        System.out.println("========== 6 Суммарная статистика по возрасту ==========");
         System.out.println("Минимальный возраст: " + yearStatistics.getMin());
         System.out.println("Максимальный возраст: " + yearStatistics.getMax());
         System.out.println("Средний возраст: " + yearStatistics.getAverage());
@@ -109,7 +109,7 @@ public class StudentsGroupingBy {
         Map<Integer, Map<String, List<Student>>> yearGradeeDoubleMap = students.stream()
                 .collect(Collectors.groupingBy(Student::getYear, Collectors.groupingBy(Student::getMajor, Collectors.toList())));
 
-        System.out.println("\n=== Группируем студентов по курсу, и внутри каждого курса группируем по специальности ===\n");
+        System.out.println("\n=== 7 Группируем студентов по курсу, и внутри каждого курса группируем по специальности ===\n");
 
 
         yearGradeeDoubleMap.forEach((year, secondMap) -> {
