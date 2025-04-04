@@ -19,7 +19,9 @@ public class Task01 {
 
         List<Integer> sortedIntegers = integers.stream()
                 .filter(i -> i > 10)
-                .sorted(Comparator.comparingInt(n -> n % 10))
+                .sorted(Comparator.<Integer>comparingInt(n -> n % 10).thenComparing(Comparator.reverseOrder())) // при составных требуется приведение <Integer>
+                //.sorted(Comparator.comparingInt(n -> n % 10))
+                //.sorted(Comparator.comparing(i -> i % 10)) // самый понятный способ и компактный
                 .collect(Collectors.toList());
 
         System.out.println("sortedIntegers: " + sortedIntegers);
